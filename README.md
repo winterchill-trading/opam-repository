@@ -72,6 +72,7 @@ opam switch create 5.2.0+ox \
 | `hl-protocol` | 0.1.0 | `fbcd0ce` | yes (through `fixed-decimal`) |  |
 | `chain-books` | 0.1.0 | `310f4a0` | yes |  |
 | `market-data` | 0.1.0 | `c821ba8` | yes (through `fixed-decimal`) | Needs libzstd (through `parquet`). |
+| `hl-client` | 0.1.0 | `4dd0ff5` | yes (through `fixed-decimal`) | Needs OpenSSL (async_ssl) and libsecp256k1. |
 
 ## Rules
 
