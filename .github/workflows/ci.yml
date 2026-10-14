@@ -1,0 +1,50 @@
+name: ci
+on: [push, pull_request]
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends opam
+      - run: opam --version
+      - run: scripts/check.sh
+
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # A fresh OxCaml switch with the third-party dependencies (ci/ci-deps.opam),
+      # cached between runs. No sibling pins: our packages come from this tree.
+      - uses: winterchill-trading/infra/.github/actions/ox-setup@main
+        with:
+          working-directory: ci
+          with-test: "false"
+      # Only committed package entries, not the workspace (which holds _opam).
+      - name: Add this repository to the switch
+        run: |
+          mkdir -p "$RUNNER_TEMP/opam-repository"
+          cp -R repo packages "$RUNNER_TEMP/opam-repository/"
+          opam repo add winterchill "$RUNNER_TEMP/opam-repository" --rank 1
+          opam repo list
+          opam list --available --repo winterchill
+      - name: Dry run, cheap tier
+        run: opam install --dry-run --yes pg-async fixed-decimal money
+      - name: Install cheap tier
+        run: opam install --yes pg-async fixed-decimal money
+      - name: Install the rest, one at a time
+        continue-on-error: true
+        run: |
+          failed=()
+          for pkg in money-cli ledger venue-net parquet; do
+            echo "::group::${pkg}"
+            opam install --yes "${pkg}" || failed+=("${pkg}")
+            echo "::endgroup::"
+          done
+          if [[ ${#failed[@]} -gt 0 ]]; then
+            echo "::warning::did not install: ${failed[*]}"
+            exit 1
+          fi
+      - run: opam list --installed --repo winterchill
