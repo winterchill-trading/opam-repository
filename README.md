@@ -44,6 +44,7 @@ opam switch create 5.2.0+ox \
 | `banking-provider` | 0.1.0 | `61aa5ef` | yes (through `money`) |  |
 | `fx-core` | 0.1.0 | `7b33240` | yes |  |
 | `scheduler-core` | 0.1.0 | `9a85ee2` | yes |  |
+| `requests-core` | 0.1.0 | `50a131a` | yes (through `money`) |  |
 
 Not here yet: `order-book`. It depends on `exchange-core`, which is not in this
 repository, and `exchange-core`'s second package `exchange-core-engine` depends back on
