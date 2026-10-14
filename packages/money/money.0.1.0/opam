@@ -1,0 +1,44 @@
+opam-version: "2.0"
+synopsis: "Currencies, exact amounts, exchange rates and fees with no floats"
+description:
+  "Money represents an amount as an arbitrary-precision integer of a currency's minor units, so EUR cents, BTC satoshis and ETH wei are all exact. Arithmetic across currencies is an error, every rounding step names its mode, exchange rates are exact rationals that round once, fee schedules take fractional basis points and round in the operator's favour, and allocation splits an amount into parts without losing a minor unit. A registry of ISO 4217 and common crypto currencies (with chain tags such as USDC@polygon) can be extended and then frozen. Sexp, JSON (numbers as strings) and versioned bin_prot forms are provided. Requires the OxCaml compiler."
+maintainer: ["hello@winterchill.xyz"]
+authors: ["WinterChill AI"]
+license: "MIT"
+tags: ["money" "currency" "decimal" "finance" "payments" "oxcaml"]
+homepage: "https://github.com/winterchill-trading/money"
+doc: "https://github.com/winterchill-trading/money#readme"
+bug-reports: "https://github.com/winterchill-trading/money/issues"
+depends: [
+  "oxcaml"
+  "ocaml" {>= "5.2.0" & < "5.3~"}
+  "dune" {>= "3.17"}
+  "core" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "ppx_jane" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "ppx_yojson_conv" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "ppx_yojson_conv_lib" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "yojson" {>= "2.0.0"}
+  "zarith" {>= "1.12"}
+  "fixed-decimal" {>= "0.1.0" & < "0.2~"}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/money.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/money.git#53e2d0f0d40d5bd512dfef4bbe881b028535f13b"
+}
