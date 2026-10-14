@@ -1,0 +1,46 @@
+opam-version: "2.0"
+synopsis:
+  "Exact fixed-point decimals with 8 fractional digits, stored as an int"
+description:
+  "Fixed_decimal represents a decimal number as an immediate int counting units of 10^-8, so addition, comparison and hashing are plain integer operations and never allocate. A generative functor gives each quantity (a price, a size, an amount) its own incompatible type. Multiplication and division are exact up to truncation and never overflow for an in-range result. Decimal strings parse and print in one pass without allocating, and the hot paths carry [@@zero_alloc]. Requires the OxCaml compiler."
+maintainer: ["hello@winterchill.xyz"]
+authors: ["WinterChill AI"]
+license: "MIT"
+tags: ["decimal" "fixed-point" "money" "finance" "oxcaml"]
+homepage: "https://github.com/winterchill-trading/fixed-decimal"
+doc: "https://github.com/winterchill-trading/fixed-decimal#readme"
+bug-reports: "https://github.com/winterchill-trading/fixed-decimal/issues"
+depends: [
+  "oxcaml"
+  "ocaml" {>= "5.2.0" & < "5.3~"}
+  "dune" {>= "3.17"}
+  "core" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "ppx_jane" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "ppx_yojson_conv" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "ppx_yojson_conv_lib" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "yojson" {>= "2.0.0"}
+  "zarith" {with-test & >= "1.12"}
+  "core_bench" {with-test & >= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "core_unix" {with-test & >= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/fixed-decimal.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/fixed-decimal.git#7efc3ae1230b006e2b5757d8a96720d84d70f00e"
+}
