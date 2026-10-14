@@ -17,7 +17,7 @@ This repository is not built with dune. There is no OCaml code here.
 | Path | Holds |
 | --- | --- |
 | `repo` | The repository marker file (`opam-version: "2.0"`) |
-| `packages/<name>/<name>.<version>/opam` | One entry per published version; forty-one packages at 0.1.0, four of them also at 0.1.1 |
+| `packages/<name>/<name>.<version>/opam` | One entry per published version; forty-one packages at 0.1.0, some also at 0.1.1 and 0.1.2 (the README table gives each package's latest) |
 | `scripts/check.sh` | The lint: `opam lint` on every entry, the directory layout, the exact-commit url rule, no `pin-depends`, a maintenance intent |
 | `ci/ci-deps.opam` | Third-party dependencies of the packages, installed by CI into a cached switch. It is not a package of this repository |
 | `.github/workflows/ci.yml` | `lint` and `install` jobs |
