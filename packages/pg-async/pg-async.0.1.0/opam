@@ -1,0 +1,45 @@
+# Not OxCaml-only: pg-async also builds on upstream OCaml 5.2 with Jane Street
+# v0.17, so it needs neither the oxcaml package nor the OxCaml repository.
+opam-version: "2.0"
+synopsis: "Non-blocking PostgreSQL client for Async, over libpq"
+description:
+  "pg-async drives libpq's asynchronous API from the Async scheduler, so queries, the connection handshake and TLS never block other jobs. It provides connections, a bounded pool with a minimum size and a maximum connection lifetime, typed parameters and applicative row decoders, a per-connection prepared-statement cache with binary results, transactions with serialization retries, ordered migrations, LISTEN/NOTIFY with reconnection, COPY FROM STDIN bulk loads and Prometheus metrics. The pg-async.testing library starts throwaway PostgreSQL clusters for tests. Needs libpq. Builds with upstream OCaml 5.2 and Jane Street v0.17 as well as with OxCaml and the v0.18 previews."
+maintainer: ["hello@winterchill.xyz"]
+authors: ["WinterChill AI"]
+license: "MIT"
+tags: ["postgresql" "database" "async" "libpq"]
+homepage: "https://github.com/winterchill-trading/pg-async"
+doc: "https://github.com/winterchill-trading/pg-async#readme"
+bug-reports: "https://github.com/winterchill-trading/pg-async/issues"
+depends: [
+  "ocaml" {>= "5.2.0"}
+  "dune" {>= "3.17"}
+  "core" {>= "v0.17.2" & < "v0.19~"}
+  "core_unix" {>= "v0.17.1" & < "v0.19~"}
+  "async" {>= "v0.17.0" & < "v0.19~"}
+  "ppx_jane" {>= "v0.17.0" & < "v0.19~"}
+  "postgresql" {>= "5.4.0" & < "6.0"}
+  "uri" {>= "4.4.0"}
+  "yojson" {>= "2.2.0" & < "4.0"}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/pg-async.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/pg-async.git#65fda874c918180d2f39278c6aa1f115cba9eec6"
+}
