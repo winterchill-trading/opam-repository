@@ -1,0 +1,38 @@
+opam-version: "2.0"
+synopsis:
+  "Venue-neutral exchange engine: matching, clearinghouse, margin, funding, liquidation, market simulation"
+maintainer: ["winterchill-trading"]
+authors: ["winterchill-trading"]
+license: "MIT"
+homepage: "https://github.com/winterchill-trading/exchange-core"
+bug-reports: "https://github.com/winterchill-trading/exchange-core/issues"
+depends: [
+  "ocaml" {>= "5.2"}
+  "dune" {>= "3.17"}
+  "core"
+  "fixed-decimal" {>= "0.1.0" & < "0.2~"}
+  "exchange-core" {>= "0.1.0" & < "0.2~"}
+  "order-book" {>= "0.1.0" & < "0.2~"}
+  "ppx_jane"
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/exchange-core.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/exchange-core.git#f492a1920fbc4765c1bce6491110e67204327807"
+}
