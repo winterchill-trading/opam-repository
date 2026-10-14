@@ -47,7 +47,7 @@ opam switch create 5.2.0+ox \
 | `banking-provider` | 0.1.0 | `61aa5ef` | yes (through `money`) |  |
 | `banking-provider` | 0.1.2 | `b128b13` | yes (through `money`) |  |
 | `fx-core` | 0.1.1 | `910377a` | yes |  |
-| `scheduler-core` | 0.1.1 | `5a62426` | yes |  |
+| `scheduler-core` | 0.1.2 | `0784717` | yes |  |
 | `requests-core` | 0.1.1 | `47c8efa` | yes (through `money`) |  |
 | `rewards-core` | 0.1.1 | `268c2b7` | yes |  |
 | `statements` | 0.1.1 | `4d1ea05` | yes |  |
