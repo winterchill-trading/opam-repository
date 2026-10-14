@@ -33,6 +33,17 @@ opam switch create 5.2.0+ox \
 | `ledger` | 0.1.0 | `e2822f9` | yes (through `money`) | |
 | `venue-net` | 0.1.0 | `97fc083` | yes (Jane Street v0.18 previews) | |
 | `parquet` | 0.1.0 | `b3141c1` | yes | Needs libzstd. |
+| `service-kit` | 0.1.0 | `1bf7076` | no |  |
+| `otp-mail` | 0.1.0 | `65f0b50` | no | Needs OpenSSL (async_ssl). |
+| `auth-kit` | 0.1.0 | `c1fc2d3` | no | Needs libargon2 (pkg-config). |
+| `webauthn` | 0.1.0 | `cff2297` | yes |  |
+| `kyc-core` | 0.1.0 | `ceba7ca` | no |  |
+| `payments-core` | 0.1.0 | `b315028` | yes (through `money`) |  |
+| `card-core` | 0.1.0 | `1c6ea5a` | yes (through `money`) |  |
+| `risk-rules` | 0.1.0 | `a444aad` | yes (through `money`) |  |
+| `banking-provider` | 0.1.0 | `61aa5ef` | yes (through `money`) |  |
+| `fx-core` | 0.1.0 | `7b33240` | yes |  |
+| `scheduler-core` | 0.1.0 | `9a85ee2` | yes |  |
 
 Not here yet: `order-book`. It depends on `exchange-core`, which is not in this
 repository, and `exchange-core`'s second package `exchange-core-engine` depends back on
