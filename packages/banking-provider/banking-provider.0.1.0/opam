@@ -1,0 +1,45 @@
+opam-version: "2.0"
+synopsis:
+  "Banking-as-a-service provider boundary: module type, normalized events, deterministic fake"
+maintainer: ["winterchill-trading"]
+authors: ["winterchill-trading"]
+license: "MIT"
+homepage: "https://github.com/winterchill-trading/banking-provider"
+bug-reports: "https://github.com/winterchill-trading/banking-provider/issues"
+depends: [
+  "ocaml" {>= "5.2"}
+  "dune" {>= "3.17"}
+  "core"
+  "core_unix"
+  "async"
+  "async_kernel"
+  "ppx_jane"
+  "zarith"
+  "cryptokit"
+  "money" {>= "0.1.0" & < "0.2~"}
+  "ledger" {>= "0.1.0" & < "0.2~"}
+  "kyc-core" {>= "0.1.0" & < "0.2~"}
+  "payments-core" {>= "0.1.0" & < "0.2~"}
+  "card-core" {>= "0.1.0" & < "0.2~"}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/banking-provider.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/banking-provider.git#61aa5ef9e8738a6718c940de803acaa9b523a9a7"
+}
