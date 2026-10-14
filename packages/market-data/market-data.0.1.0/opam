@@ -1,0 +1,42 @@
+opam-version: "2.0"
+synopsis:
+  "Normalized market data types, raw and normalized append-only logs, candles and replay"
+maintainer: ["winterchill-trading"]
+authors: ["winterchill-trading"]
+license: "MIT"
+homepage: "https://github.com/winterchill-trading/market-data"
+bug-reports: "https://github.com/winterchill-trading/market-data/issues"
+depends: [
+  "ocaml" {>= "5.2"}
+  "dune" {>= "3.17"}
+  "core"
+  "async"
+  "core_unix"
+  "bin_prot"
+  "fixed-decimal" {>= "0.1.0" & < "0.2~"}
+  "exchange-core" {>= "0.1.0" & < "0.2~"}
+  "parquet" {>= "0.1.0" & < "0.2~"}
+  "zstd"
+  "ppx_jane"
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/market-data.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/market-data.git#c821ba8bbf845c38945779efc4a49ee58c14ed06"
+}
