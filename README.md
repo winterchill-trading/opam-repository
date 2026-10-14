@@ -34,7 +34,7 @@ opam switch create 5.2.0+ox \
 | `venue-net` | 0.1.0 | `97fc083` | yes (Jane Street v0.18 previews) | |
 | `parquet` | 0.1.0 | `b3141c1` | yes | Needs libzstd. |
 | `service-kit` | 0.1.0 | `1bf7076` | no |  |
-| `service-kit` | 0.1.2 | `66ff1a6` | no |  |
+| `service-kit` | 0.1.3 | `5d369b4` | no |  |
 | `otp-mail` | 0.1.0 | `65f0b50` | no | Needs OpenSSL (async_ssl). |
 | `otp-mail` | 0.1.1 | `8082e17` | no | Needs OpenSSL (async_ssl). |
 | `auth-kit` | 0.1.0 | `c1fc2d3` | no | Needs libargon2 (pkg-config). |
