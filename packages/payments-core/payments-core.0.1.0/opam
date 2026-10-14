@@ -1,0 +1,44 @@
+opam-version: "2.0"
+synopsis:
+  "Provider-neutral payment rails, transfer state machines and ledger booking"
+maintainer: ["winterchill-trading"]
+authors: ["winterchill-trading"]
+license: "MIT"
+homepage: "https://github.com/winterchill-trading/payments-core"
+bug-reports: "https://github.com/winterchill-trading/payments-core/issues"
+depends: [
+  "ocaml" {>= "5.2"}
+  "dune" {>= "3.17"}
+  "core"
+  "async_kernel"
+  "cryptokit"
+  "zarith"
+  "ppx_jane"
+  "core_unix"
+  "money" {>= "0.1.0" & < "0.2~"}
+  "ledger" {>= "0.1.0" & < "0.2~"}
+  "async" {with-test}
+  "base_quickcheck" {with-test}
+  "expect_test_helpers_core" {with-test}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/payments-core.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/payments-core.git#b3150288c7f7d846e1b304e11e3c6582e097e0cb"
+}
