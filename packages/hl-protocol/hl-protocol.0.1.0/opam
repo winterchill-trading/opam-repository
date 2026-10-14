@@ -1,0 +1,38 @@
+opam-version: "2.0"
+synopsis: "Hyperliquid wire types and JSON codecs"
+maintainer: ["hello@winterchill.xyz"]
+authors: ["WinterChill AI"]
+license: "MIT"
+homepage: "https://github.com/winterchill-trading/hl-protocol"
+bug-reports: "https://github.com/winterchill-trading/hl-protocol/issues"
+depends: [
+  "ocaml" {>= "5.2"}
+  "dune" {>= "3.17"}
+  "core"
+  "fixed-decimal" {>= "0.1.0" & < "0.2~"}
+  "exchange-core" {>= "0.1.0" & < "0.2~"}
+  "ppx_jane"
+  "ppx_yojson_conv"
+  "yojson"
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/hl-protocol.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/hl-protocol.git#fbcd0ceaf0d8411b7d98171988bdd2927a1a706b"
+}
