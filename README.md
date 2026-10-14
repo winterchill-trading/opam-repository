@@ -64,15 +64,19 @@ opam switch create 5.2.0+ox \
 | `griffin-provider` | 0.1.0 | `e5e5a5c` | yes (through `money`) |  |
 | `lightspark-client` | 0.1.0 | `2bc841a` | no | Needs OpenSSL (async_ssl). |
 | `lightspark-provider` | 0.1.0 | `bc8c45c` | yes (through `money`) |  |
+| `pots-and-insights` | 0.1.0 | `e94c9fa` | yes |  |
+| `payouts-core` | 0.1.0 | `798e831` | yes |  |
+| `exchange-core` | 0.1.0 | `f492a19` | yes (through `fixed-decimal`) | The library package only; `exchange-core-engine` is not listed. |
+| `hl-protocol` | 0.1.0 | `fbcd0ce` | yes (through `fixed-decimal`) |  |
+| `chain-books` | 0.1.0 | `310f4a0` | yes |  |
 
 Not here yet:
 
-- `chain-books`: it depends on `exchange-core` and `hl-protocol`, neither of which is in
-  this repository.
-- `order-book`: it depends on `exchange-core`, which is not in this repository, and
-  `exchange-core`'s second package `exchange-core-engine` depends back on `order-book`.
-  It can be added once `exchange-core` (the library package alone) is audited and
-  listed, or once the primitives `order-book` uses move into a package of their own.
+- `order-book`: its CI was failing at the `main` head (`f824463`) when this list was
+  last updated. It depends on `exchange-core`, which is listed, so it can follow once
+  its CI is green.
+- `exchange-core-engine`: the second package of the `exchange-core` repository. It
+  depends on `order-book` and follows it.
 
 ## Rules
 
