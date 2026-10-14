@@ -49,9 +49,9 @@ opam switch create 5.2.0+ox \
 | `fx-core` | 0.1.1 | `910377a` | yes |  |
 | `scheduler-core` | 0.1.1 | `5a62426` | yes |  |
 | `requests-core` | 0.1.1 | `47c8efa` | yes (through `money`) |  |
-| `rewards-core` | 0.1.0 | `47ea26c` | yes |  |
-| `statements` | 0.1.0 | `e483239` | yes |  |
-| `investing-core` | 0.1.0 | `01c4cae` | yes |  |
+| `rewards-core` | 0.1.1 | `268c2b7` | yes |  |
+| `statements` | 0.1.1 | `4d1ea05` | yes |  |
+| `investing-core` | 0.1.1 | `e0e60ed` | yes |  |
 | `org-access` | 0.1.0 | `8e14969` | yes |  |
 | `org-access-cli` | 0.1.0 | `8e14969` | yes | The `org-access` command. |
 | `accounting-sync` | 0.1.0 | `c87bc80` | yes |  |
@@ -64,7 +64,7 @@ opam switch create 5.2.0+ox \
 | `griffin-provider` | 0.1.0 | `e5e5a5c` | yes (through `money`) |  |
 | `lightspark-client` | 0.1.0 | `2bc841a` | no | Needs OpenSSL (async_ssl). |
 | `lightspark-provider` | 0.1.0 | `bc8c45c` | yes (through `money`) |  |
-| `pots-and-insights` | 0.1.0 | `e94c9fa` | yes |  |
+| `pots-and-insights` | 0.1.1 | `891e05d` | yes |  |
 | `payouts-core` | 0.1.0 | `798e831` | yes |  |
 | `exchange-core` | 0.1.0 | `f492a19` | yes (through `fixed-decimal`) |  |
 | `exchange-core-engine` | 0.1.0 | `f492a19` | yes | Second package of the `exchange-core` repository. |
