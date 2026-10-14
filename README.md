@@ -34,21 +34,21 @@ opam switch create 5.2.0+ox \
 | `venue-net` | 0.1.0 | `97fc083` | yes (Jane Street v0.18 previews) | |
 | `parquet` | 0.1.0 | `b3141c1` | yes | Needs libzstd. |
 | `service-kit` | 0.1.0 | `1bf7076` | no |  |
-| `service-kit` | 0.1.1 | `62e9d26` | no |  |
+| `service-kit` | 0.1.2 | `66ff1a6` | no |  |
 | `otp-mail` | 0.1.0 | `65f0b50` | no | Needs OpenSSL (async_ssl). |
 | `otp-mail` | 0.1.1 | `8082e17` | no | Needs OpenSSL (async_ssl). |
 | `auth-kit` | 0.1.0 | `c1fc2d3` | no | Needs libargon2 (pkg-config). |
 | `webauthn` | 0.1.0 | `cff2297` | yes |  |
 | `kyc-core` | 0.1.0 | `ceba7ca` | no |  |
 | `payments-core` | 0.1.0 | `b315028` | yes (through `money`) |  |
-| `payments-core` | 0.1.1 | `c3f88c0` | yes (through `money`) |  |
+| `payments-core` | 0.1.2 | `50d1fcd` | yes (through `money`) |  |
 | `card-core` | 0.1.0 | `1c6ea5a` | yes (through `money`) |  |
 | `risk-rules` | 0.1.0 | `a444aad` | yes (through `money`) |  |
 | `banking-provider` | 0.1.0 | `61aa5ef` | yes (through `money`) |  |
-| `banking-provider` | 0.1.1 | `25e8a58` | yes (through `money`) |  |
-| `fx-core` | 0.1.0 | `7b33240` | yes |  |
-| `scheduler-core` | 0.1.0 | `9a85ee2` | yes |  |
-| `requests-core` | 0.1.0 | `50a131a` | yes (through `money`) |  |
+| `banking-provider` | 0.1.2 | `b128b13` | yes (through `money`) |  |
+| `fx-core` | 0.1.1 | `910377a` | yes |  |
+| `scheduler-core` | 0.1.1 | `5a62426` | yes |  |
+| `requests-core` | 0.1.1 | `47c8efa` | yes (through `money`) |  |
 | `rewards-core` | 0.1.0 | `47ea26c` | yes |  |
 | `statements` | 0.1.0 | `e483239` | yes |  |
 | `investing-core` | 0.1.0 | `01c4cae` | yes |  |
