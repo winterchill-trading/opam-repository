@@ -45,11 +45,30 @@ opam switch create 5.2.0+ox \
 | `fx-core` | 0.1.0 | `7b33240` | yes |  |
 | `scheduler-core` | 0.1.0 | `9a85ee2` | yes |  |
 | `requests-core` | 0.1.0 | `50a131a` | yes (through `money`) |  |
+| `rewards-core` | 0.1.0 | `47ea26c` | yes |  |
+| `statements` | 0.1.0 | `e483239` | yes |  |
+| `investing-core` | 0.1.0 | `01c4cae` | yes |  |
+| `org-access` | 0.1.0 | `8e14969` | yes |  |
+| `org-access-cli` | 0.1.0 | `8e14969` | yes | The `org-access` command. |
+| `accounting-sync` | 0.1.0 | `c87bc80` | yes |  |
+| `treasury-rules` | 0.1.0 | `ae57a1e` | yes |  |
+| `treasury-rules-cli` | 0.1.0 | `ae57a1e` | yes | The `treasury-rules` command. |
+| `billing-core` | 0.1.0 | `02aaa35` | yes |  |
+| `striga-client` | 0.1.0 | `dfc68b7` | no | Needs OpenSSL (async_ssl). |
+| `striga-provider` | 0.1.0 | `de1a94b` | yes (through `money`) |  |
+| `griffin-client` | 0.1.0 | `2864fd9` | no | Needs OpenSSL (async_ssl). |
+| `griffin-provider` | 0.1.0 | `e5e5a5c` | yes (through `money`) |  |
+| `lightspark-client` | 0.1.0 | `2bc841a` | no | Needs OpenSSL (async_ssl). |
+| `lightspark-provider` | 0.1.0 | `bc8c45c` | yes (through `money`) |  |
 
-Not here yet: `order-book`. It depends on `exchange-core`, which is not in this
-repository, and `exchange-core`'s second package `exchange-core-engine` depends back on
-`order-book`. It can be added once `exchange-core` (the library package alone) is audited
-and listed, or once the primitives `order-book` uses move into a package of their own.
+Not here yet:
+
+- `chain-books`: it depends on `exchange-core` and `hl-protocol`, neither of which is in
+  this repository.
+- `order-book`: it depends on `exchange-core`, which is not in this repository, and
+  `exchange-core`'s second package `exchange-core-engine` depends back on `order-book`.
+  It can be added once `exchange-core` (the library package alone) is audited and
+  listed, or once the primitives `order-book` uses move into a package of their own.
 
 ## Rules
 
@@ -83,9 +102,9 @@ and listed, or once the primitives `order-book` uses move into a package of thei
 - `lint` runs `scripts/check.sh` over every entry.
 - `install` builds a fresh OxCaml switch with the infra `ox-setup` action (third-party
   dependencies from `ci/ci-deps.opam`, cached between runs, no pins), adds this tree with
-  `opam repo add`, runs `opam install --dry-run` and then a real install of `pg-async`,
-  `fixed-decimal` and `money`. The remaining packages are installed one at a time in a
-  step that reports failures without failing the job.
+  `opam repo add`, dry-runs an install of every package in the tree together, then
+  really installs `pg-async`, `fixed-decimal` and `money`. A few more packages are
+  installed one at a time in a step that reports failures without failing the job.
 
 Tests are not run on install (`--with-test`): `pg-async`'s tests start PostgreSQL
 clusters and `parquet`'s use the DuckDB CLI, neither of which is an opam package. Docs
