@@ -36,7 +36,7 @@ opam switch create 5.2.0+ox \
 | `service-kit` | 0.1.0 | `1bf7076` | no |  |
 | `service-kit` | 0.1.3 | `5d369b4` | no |  |
 | `otp-mail` | 0.1.0 | `65f0b50` | no | Needs OpenSSL (async_ssl). |
-| `otp-mail` | 0.1.1 | `8082e17` | no | Needs OpenSSL (async_ssl). |
+| `otp-mail` | 0.1.2 | `b64a0be` | no | Needs OpenSSL (async_ssl). |
 | `auth-kit` | 0.1.0 | `c1fc2d3` | no | Needs libargon2 (pkg-config). |
 | `webauthn` | 0.1.0 | `cff2297` | yes |  |
 | `kyc-core` | 0.1.0 | `ceba7ca` | no |  |
