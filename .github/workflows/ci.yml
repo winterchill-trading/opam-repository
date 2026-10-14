@@ -36,7 +36,7 @@ jobs:
       # tier is built below, the rest are checked for resolvable dependencies.
       - name: Dry run, every package
         run: |
-          pkgs=$(opam list --available --repo winterchill --short --columns=name | sort -u)
+          pkgs=$(opam list --available --repo winterchill --short --columns=name --color=never | sort -u)
           echo "${pkgs}"
           opam install --dry-run --yes ${pkgs}
       - name: Install cheap tier
