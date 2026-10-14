@@ -1,0 +1,47 @@
+opam-version: "2.0"
+synopsis: "Async client for the Lightspark GraphQL and Grid APIs"
+maintainer: ["winterchill-trading"]
+authors: ["winterchill-trading"]
+license: "MIT"
+homepage: "https://github.com/winterchill-trading/lightspark-client"
+bug-reports:
+  "https://github.com/winterchill-trading/lightspark-client/issues"
+depends: [
+  "ocaml" {>= "5.2"}
+  "dune" {>= "3.17"}
+  "core"
+  "core_unix"
+  "async"
+  "async_ssl"
+  "conduit-async"
+  "cohttp"
+  "cohttp-async"
+  "ppx_jane"
+  "ppx_yojson_conv"
+  "yojson"
+  "uri"
+  "base64"
+  "cryptokit"
+  "zarith"
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/lightspark-client.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/lightspark-client.git#2bc841a0087b60d87717e103dff347f4038a9f9b"
+}
