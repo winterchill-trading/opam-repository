@@ -17,7 +17,7 @@ This repository is not built with dune. There is no OCaml code here.
 | Path | Holds |
 | --- | --- |
 | `repo` | The repository marker file (`opam-version: "2.0"`) |
-| `packages/<name>/<name>.<version>/opam` | One entry per published version; thirty-four packages at 0.1.0 |
+| `packages/<name>/<name>.<version>/opam` | One entry per published version; thirty-nine packages at 0.1.0, four of them also at 0.1.1 |
 | `scripts/check.sh` | The lint: `opam lint` on every entry, the directory layout, the exact-commit url rule, no `pin-depends`, a maintenance intent |
 | `ci/ci-deps.opam` | Third-party dependencies of the packages, installed by CI into a cached switch. It is not a package of this repository |
 | `.github/workflows/ci.yml` | `lint` and `install` jobs |
@@ -51,7 +51,7 @@ to an existing `5.2.0+ox` switch: `opam repo add winterchill <path-to-this-repo>
 
 - The packages depend on each other by name and on third-party packages from the OxCaml repository.
 - `ci/ci-deps.opam` lists the third-party dependencies; keep it in step with what the packages need.
-- `order-book` and `chain-books` are not listed yet: they depend on `exchange-core` (and `chain-books` on `hl-protocol`), which are not packaged here.
+- `order-book` and `exchange-core-engine` are not listed yet: `order-book` CI was red at its head, and `exchange-core-engine` depends on it.
 
 ## CI
 
