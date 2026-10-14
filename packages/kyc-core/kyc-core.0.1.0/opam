@@ -1,0 +1,36 @@
+opam-version: "2.0"
+synopsis:
+  "Provider-neutral customer and business verification (KYC, KYB) state"
+maintainer: ["winterchill-trading"]
+authors: ["winterchill-trading"]
+license: "MIT"
+homepage: "https://github.com/winterchill-trading/kyc-core"
+bug-reports: "https://github.com/winterchill-trading/kyc-core/issues"
+depends: [
+  "ocaml" {>= "5.2"}
+  "dune" {>= "3.17"}
+  "core"
+  "core_unix"
+  "ppx_jane"
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/kyc-core.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/kyc-core.git#ceba7cad41b5a6a649ad36a1254cf41cffe64117"
+}
