@@ -32,6 +32,13 @@ jobs:
           opam list --available --repo winterchill
       - name: Dry run, cheap tier
         run: opam install --dry-run --yes pg-async fixed-decimal money
+      # Every package in this tree solves together on the switch; only the cheap
+      # tier is built below, the rest are checked for resolvable dependencies.
+      - name: Dry run, every package
+        run: |
+          pkgs=$(opam list --available --repo winterchill --short --columns=name | sort -u)
+          echo "${pkgs}"
+          opam install --dry-run --yes ${pkgs}
       - name: Install cheap tier
         run: opam install --yes pg-async fixed-decimal money
       - name: Install the rest, one at a time
