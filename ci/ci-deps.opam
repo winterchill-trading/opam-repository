@@ -1,0 +1,29 @@
+# Not a package of this repository. CI installs these dependencies through the
+# infra ox-setup action so the switch they live in is cached; the packages in
+# packages/ are then built from this repository on top of it, with no pins.
+opam-version: "2.0"
+synopsis: "Third-party dependencies of the packages in this repository"
+maintainer: ["hello@winterchill.xyz"]
+depends: [
+  "oxcaml"
+  "ocaml" {>= "5.2.0" & < "5.3~"}
+  "dune" {>= "3.17"}
+  "core"
+  "core_unix"
+  "async"
+  "async_kernel"
+  "async_ssl"
+  "async_websocket"
+  "ppx_jane"
+  "ppx_yojson_conv"
+  "ppx_yojson_conv_lib"
+  "yojson"
+  "zarith"
+  "postgresql"
+  "uri"
+  "cryptokit"
+  "zstd"
+  "cohttp"
+  "conduit-async"
+  "ipaddr"
+]
