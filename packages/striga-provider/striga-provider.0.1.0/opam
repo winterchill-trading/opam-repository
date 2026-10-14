@@ -1,5 +1,5 @@
 opam-version: "2.0"
-synopsis: "banking-provider's Provider.S implemented over the Striga API"
+synopsis: "Provider.S of banking-provider, implemented over the Striga API"
 description:
   "Adapter from the provider-neutral banking-provider interface to striga-client: customers and KYC, EUR and crypto accounts, SEPA, Lightning, on-chain and intraledger transfers with SCA, swaps, virtual cards, statements and webhooks normalized into banking-provider events. Sandbox by default."
 maintainer: ["winterchill-trading"]

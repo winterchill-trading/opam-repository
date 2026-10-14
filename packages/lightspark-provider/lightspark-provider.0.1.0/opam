@@ -1,6 +1,6 @@
 opam-version: "2.0"
 synopsis:
-  "banking-provider's Provider.S implemented over the Lightspark Grid API"
+  "Provider.S of banking-provider, implemented over the Lightspark Grid API"
 description:
   "Adapter from the provider-neutral banking-provider interface to lightspark-client's Grid API: customers, USD and stablecoin accounts, cross-border payouts to bank accounts and wallets with FX quotes, conversions between a customer's own accounts, sandbox funding and webhooks normalized into banking-provider events. Sandbox by default."
 maintainer: ["hello@winterchill.xyz"]
