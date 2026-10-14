@@ -1,0 +1,47 @@
+opam-version: "2.0"
+synopsis: "Reconnecting websocket and one-shot HTTP clients for Async"
+description:
+  "HTTP/1.1 and websocket clients for programs built on Jane Street's Async. Http sends one request per connection over cohttp and conduit-async and returns the status and the whole body, with JSON and form helpers, a timeout that closes the socket, and a record mode that saves request/response pairs as test fixtures. Ws_client keeps one logical websocket connection open: jittered exponential reconnect backoff, a handshake timeout, text or ping-frame keepalives, a silence watchdog, an optional bound on unread messages and a callback after every handshake for resubscribing. Every https:// and wss:// connection checks the certificate chain and the host name. Built for OxCaml and the Jane Street v0.18 preview packages."
+maintainer: ["hello@winterchill.xyz"]
+authors: ["WinterChill AI"]
+license: "MIT"
+homepage: "https://github.com/winterchill-trading/venue-net"
+doc: "https://github.com/winterchill-trading/venue-net#readme"
+bug-reports: "https://github.com/winterchill-trading/venue-net/issues"
+depends: [
+  "ocaml" {>= "5.2"}
+  "dune" {>= "3.17"}
+  "core" {>= "v0.18~preview"}
+  "core_unix" {>= "v0.18~preview"}
+  "async" {>= "v0.18~preview"}
+  "async_ssl" {>= "v0.18~preview"}
+  "async_websocket" {>= "v0.18~preview"}
+  "ppx_jane" {>= "v0.18~preview"}
+  "cohttp" {>= "6.2.1"}
+  "conduit-async" {>= "8.0.0"}
+  "ipaddr" {>= "5.6.0"}
+  "uri" {>= "4.4.0"}
+  "yojson" {>= "2.2.0"}
+  "cohttp-async" {with-test & >= "6.2.1"}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/venue-net.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/venue-net.git#97fc083f7c1d8094a6adc89fca503981f6f3fc6f"
+}
