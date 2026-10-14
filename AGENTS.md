@@ -69,7 +69,7 @@ Tests are not run on install. Check a run with `gh run list --limit 1`, then at 
 
 - A package that depends on an OxCaml-only library fails with instructions when the OxCaml repository
   is missing. Keep `oxcaml` in the depends list of OxCaml-only packages.
-- `opam lint` rejects a `url` section that is not an exact commit; the check script enforces this too.
+- The exact-commit url rule is enforced by `scripts/check.sh`, not by `opam lint`, so run the script after every entry change.
 - `pg-async` needs libpq and `parquet` needs libzstd on the machine that installs them.
 
 ## Where to read more
