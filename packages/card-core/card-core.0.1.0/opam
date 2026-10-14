@@ -1,0 +1,39 @@
+opam-version: "2.0"
+synopsis:
+  "Provider-neutral card lifecycle, authorization, clearing and ledger booking"
+maintainer: ["winterchill-trading"]
+authors: ["winterchill-trading"]
+license: "MIT"
+homepage: "https://github.com/winterchill-trading/card-core"
+bug-reports: "https://github.com/winterchill-trading/card-core/issues"
+depends: [
+  "ocaml" {>= "5.2"}
+  "dune" {>= "3.17"}
+  "core"
+  "zarith"
+  "ppx_jane"
+  "money" {>= "0.1.0" & < "0.2~"}
+  "ledger" {>= "0.1.0" & < "0.2~"}
+  "payments-core" {>= "0.1.0" & < "0.2~"}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/card-core.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/card-core.git#1c6ea5a51561aa9248eb521fbd51eb5cf6bcb809"
+}
