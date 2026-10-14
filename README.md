@@ -41,7 +41,7 @@ opam switch create 5.2.0+ox \
 | `webauthn` | 0.1.0 | `cff2297` | yes |  |
 | `kyc-core` | 0.1.0 | `ceba7ca` | no |  |
 | `payments-core` | 0.1.0 | `b315028` | yes (through `money`) |  |
-| `payments-core` | 0.1.2 | `50d1fcd` | yes (through `money`) |  |
+| `payments-core` | 0.1.3 | `9b06ffe` | yes (through `money`) |  |
 | `card-core` | 0.1.0 | `1c6ea5a` | yes (through `money`) |  |
 | `risk-rules` | 0.1.0 | `a444aad` | yes (through `money`) |  |
 | `banking-provider` | 0.1.0 | `61aa5ef` | yes (through `money`) |  |
