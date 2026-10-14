@@ -1,0 +1,41 @@
+opam-version: "2.0"
+synopsis: "Apache Parquet writer and reader in OCaml, for OxCaml"
+description:
+  "Writes and reads Apache Parquet files with no Arrow or C++ dependency. The Thrift compact protocol, the PLAIN, dictionary, RLE/bit-packed and DELTA encodings, definition levels for nullable columns, statistics and the file footer are implemented in OCaml; zstd compression goes through libzstd, and the reader also decompresses snappy and lz4_raw. Columns are described with typed combinators over a row type, rows are buffered column by column with statistics, and a direct per-column API appends values without allocating. Requires the OxCaml compiler (unboxed floats) and the Jane Street libraries from its opam repository."
+maintainer: ["hello@winterchill.xyz"]
+authors: ["WinterChill AI"]
+license: "MIT"
+tags: ["parquet" "columnar" "storage" "oxcaml"]
+homepage: "https://github.com/winterchill-trading/parquet"
+doc: "https://github.com/winterchill-trading/parquet#readme"
+bug-reports: "https://github.com/winterchill-trading/parquet/issues"
+depends: [
+  "oxcaml"
+  "ocaml" {>= "5.2.0" & < "5.3~"}
+  "dune" {>= "3.17"}
+  "core" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "ppx_jane" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "zstd" {>= "0.4"}
+  "core_unix" {with-test & >= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/parquet.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/parquet.git#b3141c13975f983fca44e9e27fc0fbc1a059c353"
+}
