@@ -1,0 +1,48 @@
+opam-version: "2.0"
+synopsis: "Provider.S of banking-provider, implemented over the Striga API"
+description:
+  "Adapter from the provider-neutral banking-provider interface to striga-client: customers and KYC, EUR and crypto accounts, SEPA, Lightning, on-chain and intraledger transfers with SCA, swaps, virtual cards, statements and webhooks normalized into banking-provider events. Sandbox by default."
+maintainer: ["winterchill-trading"]
+authors: ["winterchill-trading"]
+license: "MIT"
+homepage: "https://github.com/winterchill-trading/striga-provider"
+bug-reports: "https://github.com/winterchill-trading/striga-provider/issues"
+depends: [
+  "ocaml" {>= "5.2"}
+  "dune" {>= "3.17"}
+  "core"
+  "core_unix"
+  "async"
+  "async_kernel"
+  "ppx_jane"
+  "yojson"
+  "zarith"
+  "money" {>= "0.1.0" & < "0.2~"}
+  "ledger" {>= "0.1.0" & < "0.2~"}
+  "kyc-core" {>= "0.1.0" & < "0.2~"}
+  "payments-core" {>= "0.1.0" & < "0.2~"}
+  "card-core" {>= "0.1.0" & < "0.2~"}
+  "banking-provider" {>= "0.1.0" & < "0.2~"}
+  "striga-client" {>= "0.1.2" & < "0.2~"}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/striga-provider.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/striga-provider.git#0a37e0d95b1f1392bee7db3523139d527905b810"
+}
