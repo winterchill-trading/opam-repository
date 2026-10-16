@@ -1,0 +1,45 @@
+opam-version: "2.0"
+synopsis:
+  "Name screening against public sanctions lists: parsers, normalisation, fuzzy matching, index, cases"
+description:
+  "Parses the OFAC SDN list (CSV and advanced XML, streamed), the EU consolidated list (XML), the UK Sanctions List (XML) and the archived UK OFSI consolidated list (CSV); normalises names across Latin, Cyrillic, Greek and Arabic script; scores them with explainable integer components; indexes every list name for millisecond screening; decides Clear, Potential_match or Confirmed; rescreens a population on a list update; and runs a case lifecycle with optional four eyes. Bundles invented fixture lists for tests and demos. Includes the sanctions-screening command."
+maintainer: ["hello@winterchill.xyz"]
+authors: ["WinterChill AI"]
+license: "MIT"
+tags: ["sanctions" "aml" "compliance" "fintech"]
+homepage: "https://github.com/winterchill-trading/sanctions-screening"
+doc: "https://github.com/winterchill-trading/sanctions-screening#readme"
+bug-reports: "https://github.com/winterchill-trading/sanctions-screening/issues"
+depends: [
+  "oxcaml"
+  "ocaml" {>= "5.2.0" & < "5.3~"}
+  "dune" {>= "3.17"}
+  "core" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "core_unix" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "async_kernel" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "ppx_jane" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "kyc-core" {>= "0.1.0" & < "0.2~"}
+  "async" {with-test}
+  "core_bench" {with-test}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/sanctions-screening.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/sanctions-screening.git#bf36ea68c93cad8d781e7ac1e357c08950e51259"
+}
