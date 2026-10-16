@@ -5,6 +5,23 @@ README's package table.
 
 ## 2026-10-16
 
+- `sanctions-screening` 0.1.1 and `sanctions-screening-pg` 0.1.1 (`bf36ea6`): the
+  PostgreSQL store owns its schema (`sanctions_screening` by default, `connect ~schema`)
+  with its own `schema_migrations`; 0.1.0 databases are moved into it on connect, so SQL
+  that read the tables from `public` must qualify them. `Hit.to_kyc` sets kyc-core's
+  `entry_id` to `<list>:<entry id>` (code matching kyc hits by raw id must change;
+  `Hit.split_entry_key` reads it back). Additive: `Uk_xml` (UK Sanctions List),
+  `List_source.load_files` and `load_fixtures` (fixtures embedded and installed under
+  `share/`), `Xml.iter_elements_channel`, `Ofac_xml.of_channel`; OFAC XML peak memory
+  883 MB to 158 MB.
+- `transaction-monitoring` 0.1.2 (`14c3536`): `Store_pg` owns its schema with its own
+  `schema_migrations` (0.1.x adopted on connect); `Model.of_string`, `of_json`,
+  `bundled`, `default` (model embedded and installed under `share/`); severity overrides
+  (`Rules.Config.overrides`, a new record field: record literals need it);
+  `Monitor.revoke`, migration `0003_revocations`, and four new `Store.S` values (other
+  implementations of `Store.S` must add them). Test-only dependency on
+  `sanctions-screening-pg` 0.1.1.
+
 - `risk-models` 0.1.1 (`9eda36d`): `Tree_shap` (exact path-dependent and
   interventional attributions), `Explanation` (bin_io and JSON format 1), `Explainer`,
   `Abstain` (accuracy-coverage curves) and the `explain` command; `Forest.create` takes
