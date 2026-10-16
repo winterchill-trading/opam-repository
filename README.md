@@ -48,7 +48,9 @@ opam switch create 5.2.0+ox \
 | `risk-rules` | 0.1.0 | `a444aad` | yes (through `money`) |  |
 | `risk-rules` | 0.1.1 | `a39abd3` | yes (through `money`) |  |
 | `risk-models` | 0.1.0 | `95a705b` | yes (through `money`) |  |
+| `risk-models` | 0.1.1 | `9eda36d` | yes (through `money`) |  |
 | `transaction-monitoring` | 0.1.0 | `e8cf293` | yes (through `money`) | PostgreSQL store needs libpq. |
+| `transaction-monitoring` | 0.1.1 | `7a6ca8b` | yes (through `money`) | PostgreSQL store needs libpq. |
 | `banking-provider` | 0.1.0 | `61aa5ef` | yes (through `money`) |  |
 | `banking-provider` | 0.1.2 | `b128b13` | yes (through `money`) |  |
 | `fx-core` | 0.1.2 | `b82ceac` | yes |  |
