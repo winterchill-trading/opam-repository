@@ -46,6 +46,9 @@ opam switch create 5.2.0+ox \
 | `payments-core` | 0.1.3 | `9b06ffe` | yes (through `money`) |  |
 | `card-core` | 0.1.0 | `1c6ea5a` | yes (through `money`) |  |
 | `risk-rules` | 0.1.0 | `a444aad` | yes (through `money`) |  |
+| `risk-rules` | 0.1.1 | `a39abd3` | yes (through `money`) |  |
+| `risk-models` | 0.1.0 | `95a705b` | yes (through `money`) |  |
+| `transaction-monitoring` | 0.1.0 | `e8cf293` | yes (through `money`) | PostgreSQL store needs libpq. |
 | `banking-provider` | 0.1.0 | `61aa5ef` | yes (through `money`) |  |
 | `banking-provider` | 0.1.2 | `b128b13` | yes (through `money`) |  |
 | `fx-core` | 0.1.2 | `b82ceac` | yes |  |
