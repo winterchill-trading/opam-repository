@@ -86,6 +86,9 @@ opam switch create 5.2.0+ox \
 | `execution-algos` | 0.1.0 | `fb0b198` | yes (through `fixed-decimal`) |  |
 | `hl-copy-core` | 0.1.0 | `ebeadba` | yes (through `fixed-decimal`) | The library package only; `hl-copy-backtest` from the same repository is not published. |
 | `copy-backtest` | 0.1.0 | `e27ccee` | yes (through `fixed-decimal`) | Needs libzstd (through `parquet`); its tests use the DuckDB CLI. |
+| `hl-copy-core` | 0.1.1 | `57cc660` | yes (through `fixed-decimal`) | No-trade band. The library package only. |
+| `hl-copy-engine` | 0.1.0 | `22e8afe` | yes (through `fixed-decimal`) | Needs libsecp256k1 (through `hl-client`); its tests need `hl-sim`, which is not published. |
+| `copy-backtest` | 0.1.1 | `5654694` | yes (through `fixed-decimal`) | Needs libzstd and libsecp256k1 (through `hl-copy-engine`); its tests use the DuckDB CLI. |
 | `leader-scoring` | 0.1.0 | `4f4b823` | yes | Needs libzstd (through `market-data`). |
 | `leader-scoring-hl` | 0.1.0 | `4f4b823` | yes | Second package of the `leader-scoring` repository. Needs OpenSSL (async_ssl) and libsecp256k1 (through `hl-client`). |
 
