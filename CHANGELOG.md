@@ -5,6 +5,12 @@ README's package table.
 
 ## 2026-10-16
 
+- `leader-scoring` 0.1.1 and `leader-scoring-hl` 0.1.1 (`2c06814`): `Persistence`
+  (rank persistence with a random-pick baseline), `Leader_stats` (PSR, DSR, PBO and SPA
+  from `backtest-stats`, a new dependency), `Integrity` flags; `Report.t` gains
+  `persistence`, `stats` and `integrity`, and the CLI a `persistence` command. Additive
+  for users of `Report.create` and `Report.rank`.
+
 - `hl-copy-core` 0.1.1 (`57cc660`): `No_trade_band`, `Follower_config.Stable.V3` with
   an optional band, `Plan.Stable.V2` (`Within_band`), `Mirror.Config.Stable.V2` and
   `Mirror.Stable.V2`. Code that builds `Follower_config.t`, `Mirror.Config.t` or
