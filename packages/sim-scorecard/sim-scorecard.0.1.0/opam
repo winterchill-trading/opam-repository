@@ -1,0 +1,42 @@
+opam-version: "2.0"
+synopsis:
+  "Scorecard comparing a simulator run with recorded market data: stylised facts, distances and pass bands"
+maintainer: ["winterchill-trading"]
+authors: ["winterchill-trading"]
+license: "MIT"
+homepage: "https://github.com/winterchill-trading/sim-scorecard"
+bug-reports: "https://github.com/winterchill-trading/sim-scorecard/issues"
+depends: [
+  "ocaml" {>= "5.2"}
+  "dune" {>= "3.17"}
+  "core"
+  "core_unix"
+  "async"
+  "yojson"
+  "fixed-decimal" {>= "0.1.0" & < "0.2~"}
+  "exchange-core" {>= "0.1.0" & < "0.2~"}
+  "exchange-core-engine" {>= "0.1.0" & < "0.3~"}
+  "market-data" {>= "0.1.0" & < "0.2~"}
+  "ppx_jane"
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/sim-scorecard.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/sim-scorecard.git#941ad9e61d044922e6dac02a032427a86f70bdb3"
+}
