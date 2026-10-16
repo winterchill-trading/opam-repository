@@ -73,6 +73,8 @@ opam switch create 5.2.0+ox \
 | `chain-books` | 0.1.0 | `310f4a0` | yes |  |
 | `market-data` | 0.1.0 | `c821ba8` | yes (through `fixed-decimal`) | Needs libzstd (through `parquet`). |
 | `hl-client` | 0.1.0 | `4dd0ff5` | yes (through `fixed-decimal`) | Needs OpenSSL (async_ssl) and libsecp256k1. |
+| `execution-algos` | 0.1.0 | `fb0b198` | yes (through `fixed-decimal`) |  |
+| `hl-copy-core` | 0.1.0 | `ebeadba` | yes (through `fixed-decimal`) | The library package only; `hl-copy-backtest` from the same repository is not published. |
 | `leader-scoring` | 0.1.0 | `4f4b823` | yes | Needs libzstd (through `market-data`). |
 | `leader-scoring-hl` | 0.1.0 | `4f4b823` | yes | Second package of the `leader-scoring` repository. Needs OpenSSL (async_ssl) and libsecp256k1 (through `hl-client`). |
 
