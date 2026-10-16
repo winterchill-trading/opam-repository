@@ -42,6 +42,8 @@ opam switch create 5.2.0+ox \
 | `kyc-core` | 0.1.0 | `ceba7ca` | no |  |
 | `sanctions-screening` | 0.1.0 | `c9ea650` | yes |  |
 | `sanctions-screening-pg` | 0.1.0 | `c9ea650` | yes | Second package of the `sanctions-screening` repository. Needs libpq (through `pg-async`). |
+| `sanctions-screening` | 0.1.1 | `bf36ea6` | yes |  |
+| `sanctions-screening-pg` | 0.1.1 | `bf36ea6` | yes | Second package of the `sanctions-screening` repository. Needs libpq (through `pg-async`). |
 | `payments-core` | 0.1.0 | `b315028` | yes (through `money`) |  |
 | `payments-core` | 0.1.3 | `9b06ffe` | yes (through `money`) |  |
 | `card-core` | 0.1.0 | `1c6ea5a` | yes (through `money`) |  |
@@ -51,6 +53,7 @@ opam switch create 5.2.0+ox \
 | `risk-models` | 0.1.1 | `9eda36d` | yes (through `money`) |  |
 | `transaction-monitoring` | 0.1.0 | `e8cf293` | yes (through `money`) | PostgreSQL store needs libpq. |
 | `transaction-monitoring` | 0.1.1 | `7a6ca8b` | yes (through `money`) | PostgreSQL store needs libpq. |
+| `transaction-monitoring` | 0.1.2 | `14c3536` | yes (through `money`) | PostgreSQL store needs libpq. Tests need `sanctions-screening-pg` 0.1.1. |
 | `banking-provider` | 0.1.0 | `61aa5ef` | yes (through `money`) |  |
 | `banking-provider` | 0.1.2 | `b128b13` | yes (through `money`) |  |
 | `fx-core` | 0.1.2 | `b82ceac` | yes |  |
