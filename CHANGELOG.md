@@ -5,6 +5,17 @@ README's package table.
 
 ## 2026-10-16
 
+- `hl-copy-core` 0.1.1 (`57cc660`): `No_trade_band`, `Follower_config.Stable.V3` with
+  an optional band, `Plan.Stable.V2` (`Within_band`), `Mirror.Config.Stable.V2` and
+  `Mirror.Stable.V2`. Code that builds `Follower_config.t`, `Mirror.Config.t` or
+  `Mirror.t` with a record literal needs the new field; `create` and `{ x with ... }`
+  are unchanged.
+- `hl-copy-engine` 0.1.0 (`22e8afe`): first entry (copy-backtest reads its journal
+  format). Journal entries version 3, band metrics. Its tests use `hl-sim`, which is not
+  published, so `--with-test` installs do not resolve.
+- `copy-backtest` 0.1.1 (`5654694`): backtest-stats reports and `-gate`, no-trade bands,
+  `attribute`; new dependencies on `backtest-stats` and `hl-copy-engine`, and on
+  `hl-copy-core` 0.1.1.
 - `market-data` 0.1.1 (`34d1b31`): bars, labels, directional change and CUSUM event
   clocks, VPIN toxicity (`Toxicity`, `Toxicity_feed`), feature tables. Additive.
 - `mm-core` 0.1.0 (`4ab682b`): first entry, with the toxicity gate and the reference
