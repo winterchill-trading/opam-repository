@@ -1,0 +1,49 @@
+opam-version: "2.0"
+synopsis:
+  "Deterministic backtester for copy trading: recorded markets, a leader's fills, the mirror and execution algorithms"
+description:
+  "Replays recorded market data (market-data event logs) and a leader's Hyperliquid fill history through hl-copy-core's mirror and execution-algos' schedulers, filling child orders against the replayed book with queue position, fees, funding, latency and risk caps. Writes equity curves, tracking error against the leader and per-parent cost reports to Parquet, checked with DuckDB, and runs parameter sweeps. A synthetic market and leader need no recordings."
+maintainer: ["winterchill-trading"]
+authors: ["winterchill-trading"]
+license: "MIT"
+tags: ["trading" "backtest" "copy-trading" "oxcaml"]
+homepage: "https://github.com/winterchill-trading/copy-backtest"
+bug-reports: "https://github.com/winterchill-trading/copy-backtest/issues"
+depends: [
+  "ocaml" {>= "5.2"}
+  "dune" {>= "3.17"}
+  "core"
+  "core_unix"
+  "async"
+  "yojson"
+  "ppx_jane"
+  "ppx_yojson_conv"
+  "fixed-decimal" {>= "0.1.0" & < "0.2~"}
+  "exchange-core" {>= "0.1.0" & < "0.2~"}
+  "parquet" {>= "0.1.0" & < "0.2~"}
+  "market-data" {>= "0.1.0" & < "0.2~"}
+  "hl-protocol" {>= "0.1.0" & < "0.2~"}
+  "hl-copy-core" {>= "0.1.0" & < "0.2~"}
+  "execution-algos" {>= "0.1.0" & < "0.2~"}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/copy-backtest.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/copy-backtest.git#e27ccee711f38f4713edd31818b41d46374e49a7"
+}
