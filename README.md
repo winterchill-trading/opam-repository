@@ -40,6 +40,8 @@ opam switch create 5.2.0+ox \
 | `auth-kit` | 0.1.0 | `c1fc2d3` | no | Needs libargon2 (pkg-config). |
 | `webauthn` | 0.1.0 | `cff2297` | yes |  |
 | `kyc-core` | 0.1.0 | `ceba7ca` | no |  |
+| `sanctions-screening` | 0.1.0 | `c9ea650` | yes |  |
+| `sanctions-screening-pg` | 0.1.0 | `c9ea650` | yes | Second package of the `sanctions-screening` repository. Needs libpq (through `pg-async`). |
 | `payments-core` | 0.1.0 | `b315028` | yes (through `money`) |  |
 | `payments-core` | 0.1.3 | `9b06ffe` | yes (through `money`) |  |
 | `card-core` | 0.1.0 | `1c6ea5a` | yes (through `money`) |  |
