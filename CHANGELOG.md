@@ -5,6 +5,17 @@ README's package table.
 
 ## 2026-10-16
 
+- `risk-models` 0.1.1 (`9eda36d`): `Tree_shap` (exact path-dependent and
+  interventional attributions), `Explanation` (bin_io and JSON format 1), `Explainer`,
+  `Abstain` (accuracy-coverage curves) and the `explain` command; `Forest.create` takes
+  an optional `?cover`. Additive. The bundled `txn-fraud-gbdt` export gains node counts,
+  which changes its version string.
+- `transaction-monitoring` 0.1.1 (`7a6ca8b`): decisions and alerts carry the model's
+  feature contributions (`Decision.Stable.V2`, `Alert.Stable.V2`; V1 still read),
+  `Policy.abstain`, migration `0002_explanations`. Needs `risk-models` 0.1.1. Code that
+  builds `Decision.t`, `Alert.t` or `Policy.t` with a record literal needs the new
+  fields.
+
 - `leader-scoring` 0.1.1 and `leader-scoring-hl` 0.1.1 (`2c06814`): `Persistence`
   (rank persistence with a random-pick baseline), `Leader_stats` (PSR, DSR, PBO and SPA
   from `backtest-stats`, a new dependency), `Integrity` flags; `Report.t` gains
