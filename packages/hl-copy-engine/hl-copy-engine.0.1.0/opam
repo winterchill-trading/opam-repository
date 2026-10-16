@@ -1,0 +1,51 @@
+opam-version: "2.0"
+synopsis:
+  "Copy-trading engine: mirrors leader positions into follower accounts on Hyperliquid"
+maintainer: ["winterchill-trading"]
+authors: ["winterchill-trading"]
+license: "MIT"
+homepage: "https://github.com/winterchill-trading/hl-copy-engine"
+bug-reports: "https://github.com/winterchill-trading/hl-copy-engine/issues"
+depends: [
+  "ocaml" {>= "5.2"}
+  "dune" {>= "3.17"}
+  "core"
+  "core_unix"
+  "async"
+  "ppx_jane"
+  "bin_prot"
+  "cohttp"
+  "cohttp-async"
+  "uri"
+  "yojson"
+  "fixed-decimal" {>= "0.1.0" & < "0.2~"}
+  "exchange-core" {>= "0.1.0" & < "0.2~"}
+  "hl-protocol" {>= "0.1.0" & < "0.2~"}
+  "market-data" {>= "0.1.0" & < "0.2~"}
+  "hl-client" {>= "0.1.0" & < "0.2~"}
+  "hl-copy-core" {>= "0.1.1" & < "0.2~"}
+  "execution-algos" {>= "0.1.0" & < "0.2~"}
+  "hl-sim" {with-test}
+  "exchange-core-engine" {with-test}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/hl-copy-engine.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/hl-copy-engine.git#22e8afe813fbf5951f35d3586aa96b2cf01d6c8c"
+}
