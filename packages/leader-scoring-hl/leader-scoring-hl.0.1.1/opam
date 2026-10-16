@@ -1,0 +1,44 @@
+opam-version: "2.0"
+synopsis:
+  "Hyperliquid source for leader-scoring: userFills, userFunding, clearinghouseState and portfolio, read only"
+maintainer: ["winterchill-trading"]
+authors: ["winterchill-trading"]
+license: "MIT"
+tags: ["ocaml" "oxcaml" "copy-trading" "hyperliquid"]
+homepage: "https://github.com/winterchill-trading/leader-scoring"
+bug-reports: "https://github.com/winterchill-trading/leader-scoring/issues"
+depends: [
+  "ocaml" {>= "5.2"}
+  "oxcaml"
+  "dune" {>= "3.17"}
+  "core"
+  "core_unix"
+  "async"
+  "ppx_jane"
+  "yojson"
+  "uri"
+  "leader-scoring" {= version}
+  "hl-protocol" {>= "0.1.0" & < "0.2~"}
+  "hl-client" {>= "0.1.0" & < "0.2~"}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/leader-scoring.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/leader-scoring.git#2c06814bcc103570cd033c7d43009cd5b8fc9b34"
+}
