@@ -73,10 +73,14 @@ opam switch create 5.2.0+ox \
 | `payouts-core` | 0.1.0 | `798e831` | yes |  |
 | `exchange-core` | 0.1.0 | `f492a19` | yes (through `fixed-decimal`) |  |
 | `exchange-core-engine` | 0.1.0 | `f492a19` | yes | Second package of the `exchange-core` repository. |
+| `exchange-core-engine` | 0.2.0 | `cfbfe40` | yes | Adds the price collar, the halt rule and the guard event log; journals gain inputs. |
 | `order-book` | 0.1.0 | `0b4a76e` | yes |  |
 | `hl-protocol` | 0.1.0 | `fbcd0ce` | yes (through `fixed-decimal`) |  |
 | `chain-books` | 0.1.0 | `310f4a0` | yes |  |
 | `market-data` | 0.1.0 | `c821ba8` | yes (through `fixed-decimal`) | Needs libzstd (through `parquet`). |
+| `market-data` | 0.1.1 | `34d1b31` | yes (through `fixed-decimal`) | Adds bars, labels and VPIN toxicity. Needs libzstd (through `parquet`). |
+| `mm-core` | 0.1.0 | `4ab682b` | yes (through `fixed-decimal`) | The library package only; `mm-core-replay` from the same repository is not published. |
+| `sim-scorecard` | 0.1.0 | `941ad9e` | yes (through `fixed-decimal`) | Accepts `exchange-core-engine` 0.1 or 0.2. Needs libzstd (through `market-data`). |
 | `hl-client` | 0.1.0 | `4dd0ff5` | yes (through `fixed-decimal`) | Needs OpenSSL (async_ssl) and libsecp256k1. |
 | `backtest-stats` | 0.1.0 | `7a6abff` | yes | Needs libzstd (through `parquet`). |
 | `execution-algos` | 0.1.0 | `fb0b198` | yes (through `fixed-decimal`) |  |
