@@ -1,0 +1,42 @@
+opam-version: "2.0"
+synopsis: "PostgreSQL store for sanctions-screening, over pg-async"
+description:
+  "Store_pg implements sanctions-screening's Store.S (list versions, subjects, screening results and case events, all idempotent) on PostgreSQL through pg-async, with embedded migrations. Needs libpq."
+maintainer: ["hello@winterchill.xyz"]
+authors: ["WinterChill AI"]
+license: "MIT"
+tags: ["sanctions" "aml" "postgresql"]
+homepage: "https://github.com/winterchill-trading/sanctions-screening"
+doc: "https://github.com/winterchill-trading/sanctions-screening#readme"
+bug-reports: "https://github.com/winterchill-trading/sanctions-screening/issues"
+depends: [
+  "oxcaml"
+  "ocaml" {>= "5.2.0" & < "5.3~"}
+  "dune" {>= "3.17"}
+  "core" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "async" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "ppx_jane" {>= "v0.18~preview.130.106+341" & < "v0.19~"}
+  "sanctions-screening" {= version}
+  "pg-async" {>= "0.1.0" & < "0.2~"}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/sanctions-screening.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/sanctions-screening.git#c9ea6506f18a715f9f0a109ca6c2d24a231f7465"
+}
