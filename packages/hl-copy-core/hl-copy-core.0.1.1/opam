@@ -1,0 +1,43 @@
+opam-version: "2.0"
+synopsis:
+  "Pure copy-trading logic: sizing, risk caps, rounding, mirroring plans and leader scoring"
+maintainer: ["winterchill-trading"]
+authors: ["winterchill-trading"]
+license: "MIT"
+homepage: "https://github.com/winterchill-trading/hl-copy-core"
+bug-reports: "https://github.com/winterchill-trading/hl-copy-core/issues"
+depends: [
+  "ocaml" {>= "5.2"}
+  "dune" {>= "3.17"}
+  "core"
+  "core_unix"
+  "cryptokit"
+  "ppx_jane"
+  "bin_prot"
+  "fixed-decimal" {>= "0.1.0" & < "0.2~"}
+  "exchange-core" {>= "0.1.0" & < "0.2~"}
+  "hl-protocol" {>= "0.1.0" & < "0.2~"}
+  "market-data" {>= "0.1.0" & < "0.2~"}
+  "core_bench" {with-test}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/winterchill-trading/hl-copy-core.git"
+x-maintenance-intent: ["(latest)"]
+url {
+  src:
+    "git+https://github.com/winterchill-trading/hl-copy-core.git#57cc66032401962e7d74b32c4983bb6d230c738c"
+}
